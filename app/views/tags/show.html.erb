@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>Show Tag</h1>
+</div>
+
+<h2><%= @tag.name %></h2>
+<p><%= link_to "Update tag", edit_tag_path(@tag) %></p>
+<p><%= link_to "Delete tag", tag_path(@tag), method: :delete, data: { confirm: "Are you sure?"} %></p>
+<p><%= link_to "All Tags", tags_path %></p>

@@ -5,4 +5,6 @@
 <h2><%= @idea.content %></h2>
 <p><%= @idea.description %></p>
 
+<p><%= link_to "Update", edit_idea_path %></p>
+<p><%= link_to "Delete", idea_path(@idea), method: :delete, data: { confirm: 'Are you sure?'} %></p>
 <p><%= link_to "All Ideas", ideas_index_path %></p>
