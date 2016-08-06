@@ -1,0 +1,11 @@
+<div class="page-header">
+  <h1>New Idea</h1>
+</div>
+
+<%= simple_form_for @idea do |f| %>
+  <%= f.input :content %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
+
+<p><%= link_to "All Ideas", ideas_index_path %></p>
