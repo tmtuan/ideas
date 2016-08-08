@@ -46,7 +46,12 @@ class IdeasController < ApplicationController
   end
 
   def match
-    @ideas = Idea.all
+
+    @tagname = params[:tag]
+    @ideas = Idea.tagged_with(@tagname)
+    @tags = ActsAsTaggableOn::Tag.all
+
+
   end
 
   def destroy
