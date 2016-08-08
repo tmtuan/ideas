@@ -2,6 +2,17 @@
   <h1>All Ideas</h1>
 </div>
 
+
+<div>
+  <span class="glyphicon glyphicon-tags"> </span>
+
+    <% @tags.each do |tag| %>
+      <button class="btn btn-info"><%= tag.name %></button>
+    <% end %>
+
+</div>
+
+<br>
 <div class="row">
   <% @ideas.each do |idea| %>
 
@@ -11,7 +22,14 @@
         <div class="caption">
           <h3><%= link_to idea.content, idea %></h3>
           <p><%= idea.description %></p>
-          <p><%= link_to '...', idea, class: "btn btn-primary" %></p>
+          <p><%= link_to '...', idea, class: 'btn btn-primary' %></p>
+
+          <span class="glyphicon glyphicon-tags"> </span>
+          <% idea.tags.any? %> 
+          <% idea.tags.each do |tag| %> 
+              <span class="label label-success"><%= tag.name %></span>
+          <% end %>
+
         </div>
 
       </div>

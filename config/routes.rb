@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
   get 'ideas/index'
 
+  get 'ideas/match'
+
   resources :ideas
 
   resources :tags, only: [:index, :show]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,6 +3,13 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+    @tags = ActsAsTaggableOn::Tag.all
+
+    @searchkey = ''
+    if params[:q] != nil
+      @searchkey = params[:q]
+      @ideas = Idea.where('lower(content) LIKE ? OR lower(description) LIKE ?',  '%' + @searchkey.downcase + '%',  '%' + @searchkey.downcase + '%')
+    end
   end
 
 
@@ -36,6 +43,10 @@ class IdeasController < ApplicationController
       render 'edit'
     end
 
+  end
+
+  def match
+    @ideas = Idea.all
   end
 
   def destroy

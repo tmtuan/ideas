@@ -5,11 +5,17 @@
 <h2><%= @idea.content %></h2>
 <p><%= @idea.description %></p>
 
-<h3>Tags</h3>
+<span class="glyphicon glyphicon-tag"></span>
 <% @idea.tags.any? %> 
 <% @idea.tags.each do |tag| %> 
-    <%= link_to tag.name, tag_path(tag) %> 
+    <%= link_to tag.name, tag_path(tag), :class => 'label label-success' %> 
 <% end %>
-<p><%= link_to 'Update', edit_idea_path %></p>
-<p><%= link_to 'Delete', idea_path(@idea), method: :delete, data: { confirm: 'Are you sure?'} %></p>
-<p><%= link_to 'All Ideas', ideas_index_path %></p>
+
+<br>
+<br>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+<%= link_to 'Update', edit_idea_path, :class => 'btn btn-warning' %>
+<%= link_to 'Delete', idea_path(@idea), method: :delete, data: { confirm: 'Are you sure?'}, :class => 'btn btn-danger' %>
+  </div>
+</div>
