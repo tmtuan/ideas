@@ -45,9 +45,17 @@ class IdeasController < ApplicationController
     redirect_to ideas_index_path
   end
 
+  def tagged
+    if params[:tag].present?
+      @ideas = Idea.tagged_with(params[:tag])
+    else
+      @ideas = Idea.all
+    end
+  end
+
   private
     def idea_params
-      params.require(:idea).permit(:content, :description)
+      params.require(:idea).permit(:content, :description, :tag_list)
     end
 
     def find_idea
