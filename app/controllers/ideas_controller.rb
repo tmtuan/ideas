@@ -37,7 +37,7 @@ class IdeasController < ApplicationController
 
   def update
 
-    if @idea.update(params[:idea].permit(:content, :description))
+    if @idea.update(idea_params)
       redirect_to @idea
     else
       render 'edit'
@@ -71,7 +71,7 @@ class IdeasController < ApplicationController
 
   private
     def idea_params
-      params.require(:idea).permit(:content, :description, :tag_list)
+      params.require(:idea).permit(:content, :description, :avatar, :tag_list)
     end
 
     def find_idea
