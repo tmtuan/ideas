@@ -2,15 +2,25 @@
   <h1>Show Idea</h1>
 </div>
 
-<h2><%= @idea.content %></h2>
-<p><%= @idea.description %></p>
 
-<span class="glyphicon glyphicon-tag"></span>
-<% @idea.tags.any? %> 
-<% @idea.tags.each do |tag| %> 
-    <%= link_to tag.name, tag_path(tag), :class => 'label label-success' %> 
-<% end %>
+<div class="row">
 
+  <div class="col-md-4">
+    <%= image_tag @idea.avatar.url(:medium) %>
+  </div>
+
+  <div class="col-md-8">
+    <h2><%= @idea.content %></h2>
+    <p><%= @idea.description %></p>
+
+    <span class="glyphicon glyphicon-tag"></span>
+    <% @idea.tags.any? %> 
+    <% @idea.tags.each do |tag| %> 
+        <%= link_to tag.name, tag_path(tag), :class => 'label label-success' %> 
+    <% end %>
+  </div>
+
+</div>
 <br>
 <br>
 <div class="row">

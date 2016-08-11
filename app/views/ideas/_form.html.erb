@@ -7,11 +7,15 @@
 
   <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_field :description, :class => 'form-control' %>
+    <%= f.text_area :description, :class => 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar, :id => 'avatar' %>
+  </div>
+
+  <div id="image-holder">
+
   </div>
 
     <div class="form-group">
@@ -21,3 +25,31 @@
 
   <%= f.submit "Save", :class => 'btn btn-primary' %>
 <% end %>
+
+<script>
+  $('#avatar').on('change', function() {
+
+    if (typeof (FileReader) != "undefined") {
+      var image_holder = $('#image-holder');
+      image_holder.empty();
+
+
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $("<img />", {
+        "src": e.target.result,
+        "class": "img-rounded",
+        "width": "300"
+      }).appendTo(image_holder);
+
+    }
+    image_holder.show();
+    reader.readAsDataURL($(this)[0].files[0]);
+
+    } else {
+
+      alert("This browser does not support FileReader.");
+    }
+  });
+
+</script>

@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <h2>All Tags</h2>
+</div>
+
+<table class="table table-condensed">
+<% @tags.each do |tag| %>
+  <tr>
+      <td><%= tag.name %></td>
+      <td><%= link_to 'Delete', tag_path(tag), method: :delete, data: { confirm: 'Are your sure?'}, :class => 'btn btn-danger' %></td>
+  </tr>
+<% end %>
+</table>
