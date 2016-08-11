@@ -18,31 +18,30 @@
 
 <br>
 <div class="row">
-  <% @ideas.each do |idea| %>
 
-      <div class="col-sm-6 col-md-4">
+  <div id="ideas" class="transitions-enabled">
+    <% @ideas.each do |idea| %>
 
-        <div class="box">
+          <div class="box">
 
-          <%= image_tag idea.avatar.url(:medium) %>
-          <div class="panel-body">
-            <h3><%= link_to idea.content, idea %></h3>
-            <p><%= idea.description %></p>
-            <p><%= link_to '...', idea, class: 'btn btn-primary' %></p>
+            <%= image_tag idea.avatar.url(:medium) %>
+            <div class="panel-body">
+              <h3><%= link_to idea.content, idea %></h3>
+              <p><%= idea.description %></p>
+              <p><%= link_to '...', idea, class: 'btn btn-primary' %></p>
 
-            <div class="tag">
-              <span class="glyphicon glyphicon-tags"></span>
-              <% idea.tags.any? %> 
-              <% idea.tags.each do |tag| %> 
-                  <span class="label label-success"><%= tag.name %></span>
-              <% end %>
+              <div class="tag">
+                <span class="glyphicon glyphicon-tags"></span>
+                <% idea.tags.any? %> 
+                <% idea.tags.each do |tag| %> 
+                    <span class="label label-success"><%= tag.name %></span>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
 
-      </div>
-
-  <% end %>
+     <% end %>
+  </div>
 </div>
 
 <script>
