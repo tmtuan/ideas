@@ -1,22 +1,4 @@
-<div class="jumbotron">
-  <div class="page-header">
-    <h2>All Ideas</h2>
-  </div>
-
-  <div>
-    <span class="glyphicon glyphicon-tags"> </span>
-
-    <% @tags.each do |tag| %>
-        <button class="btn btn-info"><%= tag.name %></button>
-    <% end %>
-  </div>
-
-</div>
-
-
-
-
-<br>
+<div class="board_content">
 <div class="row">
 
   <div id="ideas" class="transitions-enabled">
@@ -24,11 +6,9 @@
 
           <div class="box">
 
-            <%= image_tag idea.avatar.url(:medium) %>
+            <%= link_to (image_tag idea.avatar.url), idea %>
             <div class="panel-body">
               <h3><%= link_to idea.content, idea %></h3>
-              <p><%= idea.description %></p>
-              <p><%= link_to '...', idea, class: 'btn btn-primary' %></p>
 
               <div class="tag">
                 <span class="glyphicon glyphicon-tags"></span>
@@ -43,9 +23,9 @@
      <% end %>
   </div>
 </div>
-
+</div>
 <script>
-
+  
   var keyword = '';
 
   keyword = '<%= j @searchkey %>';

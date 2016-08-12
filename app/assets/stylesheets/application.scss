@@ -21,6 +21,11 @@
 
 body {
   background: #E9E9E9;
+  padding-top: 60px;
+}
+
+textarea {
+  min-height: 250px;
 }
 
 #ideas {
@@ -29,12 +34,18 @@ body {
 
   .box {
     background: #FFFFFF;
-    margin: 10px;
-    width: 350px;
+    margin: 6px;
+    width: 300px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     border-radius: 7px;
     text-align: center;
-    padding: 14px;
+    img {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      height: auto;
+    }
+
     .tag {
       font-size: 12px;
       border-top: 1px solid #EAEAEA;
@@ -79,3 +90,22 @@ body {
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
+
+.tmtuan-navbar {
+  clear: both;
+  z-index: 0;
+  opacity: .94;
+}
+
+.tmtuan-navbar-fixed-top-glass-layer {
+  top:0;
+  position:fixed;
+  z-index: 998;
+  width:100%;
+  height:50px;
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
