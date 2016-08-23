@@ -24,12 +24,20 @@
   </div>
 </div>
 </div>
+
 <script>
-  
+
+  $(document).ready(function() {
+    return $('#ideas').imagesLoaded(function() {
+      return $('#ideas').masonry({
+        itemSelector: '.box',
+        isFitWidth: true
+      });
+    });
+  });
+
   var keyword = '';
-
   keyword = '<%= j @searchkey %>';
-
   if ( keyword != '') {
     document.getElementById('search_bar').value = keyword;
   }

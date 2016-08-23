@@ -18,10 +18,18 @@
 
   </div>
 
+
+  <div  class="form-group">
+    <label>Image filename</label>
+    <input type="text"  class="form-control" id="image_file_name" value="filename" />
+  </div>
+
     <div class="form-group">
       <%= f.label :tags %>
       <%= f.text_field :tag_list, :class => 'form-control' %>
     </div>
+
+
 
   <%= f.submit "Save", :class => 'btn btn-primary' %>
 <% end %>
@@ -33,15 +41,13 @@
       var image_holder = $('#image-holder');
       image_holder.empty();
 
-
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      $("<img />", {
-        "src": e.target.result,
-        "class": "img-rounded",
-        "width": "300"
-      }).appendTo(image_holder);
-
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $("<img />", {
+          "src": e.target.result,
+          "class": "img-rounded",
+          "width": "300"
+        }).appendTo(image_holder);
     }
     image_holder.show();
     reader.readAsDataURL($(this)[0].files[0]);
@@ -50,6 +56,21 @@
 
       alert("This browser does not support FileReader.");
     }
+  });
+
+  $('#image_file_name').on('change', function() {
+
+      var image_holder = $('#image-holder');
+      image_holder.empty();
+
+        $("<img />", {
+          "src": $(this).val(),
+          "class": "img-rounded",
+          "width": "300"
+        }).appendTo(image_holder);
+
+      image_holder.show();
+
   });
 
 </script>
