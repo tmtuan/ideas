@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'ideas/match'
 
+  get 'ideas/map'
+
   resources :ideas
 
   resources :tags, only: [:index, :show, :destroy]

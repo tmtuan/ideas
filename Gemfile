@@ -33,6 +33,8 @@ gem 'paperclip', '~> 5.0'
 
 gem 'masonry-rails', '~> 0.2.4'
 
+gem 'gmaps4rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

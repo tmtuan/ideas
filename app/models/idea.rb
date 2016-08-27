@@ -7,4 +7,6 @@ class Idea < ActiveRecord::Base
   def avatar_from_url(url)
     self.avatar = open(url)
   end
+
+
 end

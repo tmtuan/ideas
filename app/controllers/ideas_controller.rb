@@ -1,6 +1,8 @@
 class IdeasController < ApplicationController
   before_action :find_idea, only: [:show, :edit, :update, :destroy]
 
+  MarkerOnMap = Struct.new(:lat, :lng, :picture, :infowindow )
+
   def index
     @ideas = Idea.all
     @tags = ActsAsTaggableOn::Tag.all
@@ -51,6 +53,16 @@ class IdeasController < ApplicationController
     @ideas = Idea.tagged_with(@tagname)
     @tags = ActsAsTaggableOn::Tag.all
 
+  end
+
+  def map
+    @ideas = Idea.all
+    @idea_locations = Array.new
+
+    @ideas.each do |idea|
+      marker = MarkerOnMap.new(idea.latitude, idea.longitude, "<img src='" + idea.avatar.url(:thumb) + "' >", "<img src='" + idea.avatar.url(:thumb) + "' >" + idea.content)
+      @idea_locations.push(marker)
+    end
 
   end
 
@@ -71,7 +83,7 @@ class IdeasController < ApplicationController
 
   private
     def idea_params
-      params.require(:idea).permit(:content, :description, :avatar, :tag_list)
+      params.require(:idea).permit(:content, :description, :avatar, :latitude, :longitude, :tag_list)
     end
 
     def find_idea
