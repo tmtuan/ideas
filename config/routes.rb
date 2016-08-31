@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'ideas/index'
 
+  get 'ideas/animation'
+
   get 'ideas/match'
 
   get 'ideas/map'

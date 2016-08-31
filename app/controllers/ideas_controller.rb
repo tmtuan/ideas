@@ -55,12 +55,16 @@ class IdeasController < ApplicationController
 
   end
 
+  def animation
+    @ideas = Idea.all
+  end
+
   def map
     @ideas = Idea.all
     @idea_locations = Array.new
 
     @ideas.each do |idea|
-      marker = MarkerOnMap.new(idea.latitude, idea.longitude, "<img src='" + idea.avatar.url(:thumb) + "' >", "<img src='" + idea.avatar.url(:thumb) + "' >" + idea.content)
+      marker = MarkerOnMap.new(idea.latitude, idea.longitude, "<img src='" + idea.avatar.url(:thumb) + "' >", "<img src='" + idea.avatar.url(:thumb) + "' >" + "<a href='" + idea_path(idea) + "'>" + idea.content + "</a>")
       @idea_locations.push(marker)
     end
 

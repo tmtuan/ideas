@@ -1,0 +1,60 @@
+<div class="board_content">
+<div class="row">
+
+  <div id="ideas" class="transitions-enabled">
+    <% @ideas.each do |idea| %>
+
+          <div class="box">
+
+            <%= link_to (image_tag idea.avatar.url), idea %>
+            <div class="panel-body">
+              <h3><%= link_to idea.content, idea %></h3>
+
+              <div class="tag">
+                <span class="glyphicon glyphicon-tags"></span>
+                <% idea.tags.any? %> 
+                <% idea.tags.each do |tag| %> 
+                    <span class="label label-success"><%= tag.name %></span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+     <% end %>
+  </div>
+</div>
+</div>
+
+<script>
+
+  $(document).ready(function() {
+    return $('#ideas').imagesLoaded(function() {
+      return $('#ideas').masonry({
+        itemSelector: '.box',
+        isFitWidth: true
+      });
+    });
+  });
+
+  var keyword = '';
+  keyword = '<%= j @searchkey %>';
+  if ( keyword != '') {
+    document.getElementById('search_bar').value = keyword;
+  }
+
+  $('.box').mouseover(
+      function() {
+        var animation_class = 'bounce';
+        $(this).addClass(animation_class);
+      }
+  );
+
+  $('.box').mouseleave(
+      function() {
+        var animation_class = 'bounce';
+        setTimeout(function(){},2000);
+        $(this).removeClass(animation_class);
+      }
+  );
+
+</script>
