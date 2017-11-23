@@ -1,9 +1,15 @@
 source 'https://rubygems.org'
 
 
+<<<<<<< HEAD
 
 gem 'rails', '~> 5.1', '>= 5.1.1'
 
+=======
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails'
+# Use sqlite3 as the database for Active Record
+>>>>>>> user
 gem 'sqlite3'
 
 gem 'sass-rails'
@@ -31,6 +37,10 @@ gem 'paperclip', '~> 5.0'
 gem 'masonry-rails', '~> 0.2.4'
 
 gem 'gmaps4rails'
+
+gem 'devise', '~> 4.3'
+
+gem 'json'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

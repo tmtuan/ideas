@@ -30,11 +30,18 @@
 </div>
 
 <div>
+
   <ul class="nav navbar-nav navbar-right">
-    <li><%= link_to "Animation", ideas_animation_path %></li>
-    <li><%= link_to "Map", ideas_map_path %></li>
-    <li><%= link_to "Match Ideas", ideas_match_path %></li>
-    <li><%= link_to "New Idea", new_idea_path %></li>
+    <li><%= link_to 'Animation', ideas_animation_path %></li>
+    <li><%= link_to 'Map', ideas_map_path %></li>
+    <li><%= link_to 'Match Ideas', ideas_match_path %></li>
+    <li><%= link_to 'New Idea', new_idea_path %></li>
+    <% if user_signed_in? %>
+    <li><%= link_to current_user.email + ', Sign out', destroy_user_session_path, :method => :delete %></li>
+    <% else %>
+    <li><%= link_to 'Sign in', new_user_session_path %></li>
+    <% end %>
+
   </ul>
 </div>
 
@@ -42,6 +49,10 @@
 </nav>
 
 <div class="container-fluid">
+
+  <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+  <% end %>
 
     <%= yield %>
 
