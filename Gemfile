@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -34,6 +34,10 @@ gem 'paperclip', '~> 5.0'
 gem 'masonry-rails', '~> 0.2.4'
 
 gem 'gmaps4rails'
+
+gem 'devise', '~> 4.3'
+
+gem 'json'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
