@@ -1,15 +1,9 @@
 source 'https://rubygems.org'
 
 
-<<<<<<< HEAD
 
-gem 'rails', '~> 5.1', '>= 5.1.1'
-
-=======
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
-# Use sqlite3 as the database for Active Record
->>>>>>> user
+
 gem 'sqlite3'
 
 gem 'sass-rails'
